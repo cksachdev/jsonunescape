@@ -1,22 +1,3 @@
-var parseContentBody = function(contentBody) {
-  try {
-      contentBody = JSON.parse(contentBody);
-  } catch (e) {
-      contentBody = convertToJSON(contentBody);
-  }
-  return contentBody;
-}
-
-var convertToJSON = function(contentBody) {
-  try {
-      var x2js = new X2JS({ attributePrefix: 'none', enableToStringFunc: false });
-      return x2js.xml_str2json(contentBody);
-  } catch (e) {
-      return;
-  }
-}
-
-
 $(function () {
   $('#horizontal').kendoSplitter({
     panes: [{
@@ -90,5 +71,28 @@ function beautifyJSON(element_id) {
     $('#' + element_id).val(JSON.stringify(jsonObject, null, parseInt(2)));
   } catch (e) {
     validateJSON();
+  }
+}
+
+
+var parseContentBody = function() {
+  var contentBody = $("#jsonInput").val();
+  console.log('parse content' + contentBody);
+  try {
+      contentBody = JSON.parse(contentBody);
+  } catch (e) {
+      contentBody = convertToJSON(contentBody);
+  }
+
+  console.log(contentBody);
+  $("#jsonOutput").empty().val(contentBody);
+}
+
+var convertToJSON = function(contentBody) {
+  try {
+      var x2js = new X2JS({ attributePrefix: 'none', enableToStringFunc: false });
+      return x2js.xml_str2json(contentBody);
+  } catch (e) {
+      return;
   }
 }

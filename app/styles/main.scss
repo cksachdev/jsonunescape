@@ -1,18 +1,106 @@
 $icon-font-path: '../fonts/';
 // bower:scss
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
-
 // endbower
-
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
 
 .json-container {
-    
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .panel {
-    margin-bottom:0;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 0;
+  border: 0;
 }
 
-.copy-icon {
-    display: inline-block;
+.panel-heading {
+  background-color: #eeeeef !important;
+}
+
+.panel-body {
+  padding: 0;
+  height: calc(100vh - 50px);
+}
+
+.panel-icon {
+  display: inline-block;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.panel-icon+.panel-icon {
+  margin-left: 10px;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  border: 0;
+  resize: none;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  font-size:30px;
+  color: lightgray;
+  text-align: center;
+}
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  text-align: center;
+}
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  text-align: center;
+}
+
+:-ms-input-placeholder {
+  text-align: center;
+}
+
+#vertical {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#left-pane,
+#right-pane {
+  color: #000;
+  background-color: #eee;
+}
+
+.pane-content {
+  width: 100%;
+  height: 100%;
+  padding: 0 10px;
+}
+
+.k-widget *,
+.k-widget :before {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.k-splitbar .k-i-arrow-60-down,
+.k-splitbar .k-i-arrow-60-left,
+.k-splitbar .k-i-arrow-60-right,
+.k-splitbar .k-i-arrow-60-up {
+  // font-size:20px;
+}
+
+.k-splitter .k-splitbar-horizontal {
+  // width:20px;
 }

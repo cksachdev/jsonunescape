@@ -125,6 +125,8 @@ textarea {
 .k-splitbar .k-i-arrow-60-right,
 .k-splitbar .k-i-arrow-60-up {
   font-size:29px;
+  color:#999 !important;
+  opacity:1 !important;
 }
 
 .k-splitter .k-splitbar-horizontal {
@@ -132,12 +134,18 @@ textarea {
 }
 
 .k-splitbar-draggable-horizontal .k-resize-handle {
-  width:8px;
-  margin-left:2px;
+  width:6px;
+  margin-left:4px;
   margin-top:-6px;
+  background-color: #999 !important;
+  opacity:1 !important;
 }
 
-.k-splitbar.k-state-focused {
-  border-color: #eeeeef;
-  background-color: #eeeeef;
+.k-splitbar{
+  border-color: #eeeeef !important;
+  background-color: #eeeeef !important;
+}
+
+.k-splitbar-draggable-horizontal {
+  cursor: col-resize;
 }

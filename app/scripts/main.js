@@ -1,5 +1,6 @@
-$(function () {
+;
 
+$(function () {
   $("#horizontal").kendoSplitter({
     panes: [{
         collapsible: true,
@@ -12,50 +13,66 @@ $(function () {
     ]
   });
 
-  var data = [{
-    'AreaCode': 'B697-31',
-    'Revenue': 12747128.190000001
-  }, {
-    'AreaCode': 'B697-92',
-    'Revenue': 7922559.1600000048
-  }, {
-    'AreaCode': 'B697-76',
-    'Revenue': 7541039.540000001
-  }, {
-    'AreaCode': 'B697-46',
-    'Revenue': 7076495.5800000066
-  }, {
-    'AreaCode': 'B553-131',
-    'Revenue': 5738816.5099999979
-  }, {
-    'AreaCode': 'B553-193',
-    'Revenue': 4608556.52
-  }, {
-    'AreaCode': 'B697-74',
-    'Revenue': 3895194.1099999994
-  }, {
-    'AreaCode': 'D158-233',
-    'Revenue': 3572808.989999996
-  }, {
-    'AreaCode': 'B697-78',
-    'Revenue': 3512657.6999999937
-  }, {
-    'AreaCode': 'B672-31',
-    'Revenue': 2955916.9800000032
-  }, {
-    'AreaCode': 'B553-46',
-    'Revenue': 2806813.7100000042
-  }];
+  $('#copyInput').click(function(){
+    copyToClipboard('jsonInput');
+  });
 
-  var tmpData = data;
-  var formattedData = JSON.stringify(tmpData, null, '\t');
-  $('#jsonInput').text(formattedData);
+  $('#copyOutput').click(function(){
+    copyToClipboard('jsonOutput');
+  });
 
 });
 
 
-function copyInput() {
-  var copyText = document.getElementById("jsonInput");
-  copyText.select();
-  document.execCommand("copy");
+function copyToClipboard(element_id) {
+  var aux = document.createElement("div");
+  aux.setAttribute("contentEditable", true);
+  aux.innerHTML = document.getElementById(element_id).value;
+  aux.setAttribute("onfocus", "document.execCommand('selectAll',false,null)"); 
+  document.body.appendChild(aux);
+  aux.focus();
+  
+  try {  
+    document.execCommand("copy");
+    console.log('Copied');  
+    alert('Copied!');
+  } catch(err) {  
+    console.log('Oops, unable to copy');  
+  } finally {
+    document.body.removeChild(aux);
+  }
+
+
+  window.getSelection().removeAllRanges();  
 }
+
+function minifyJSON(element_id) {
+  var content = $("#"+element_id).val();
+  if (content.trim().length == 0) {
+      return false;
+  }
+  try {
+      var jsonStr = content;
+      var jsonObject = $.parseJSON(jsonStr);
+      $('#'+element_id).val(JSON.stringify(jsonObject, null, 0));
+     
+  } catch (e) {
+      validateJSON();
+  }
+}
+
+
+function beautifyJSON(element_id) {
+  var content = $("#"+element_id).val();
+  if (content.trim().length == 0) {
+      return false;
+  }
+  try {
+      var jsonStr = content;
+      var jsonObject = $.parseJSON(jsonStr);
+      $('#'+element_id).val(JSON.stringify(jsonObject, null, parseInt(2)));
+  } catch (e) {
+      validateJSON();
+  }
+}
+

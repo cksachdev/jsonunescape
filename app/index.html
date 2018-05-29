@@ -39,18 +39,18 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <div class="panel-icon" title="Copy to clipboard" onclick="copyInput();">
+                    <div class="panel-icon" title="Copy to clipboard" id="copyInput">
                       <i class="fa fa-clone" aria-hidden="true"></i>
                     </div>
-                    <div class="panel-icon" title="Format JSON data">
+                    <div class="panel-icon" title="Format JSON data" onclick="beautifyJSON('jsonInput');">
                       <i class="fa fa-align-center" aria-hidden="true"></i>
                     </div>
-                    <div class="panel-icon" title="Compact JSON data, remove all whitespace">
+                    <div class="panel-icon" title="Compact JSON data, remove all whitespace" onclick="minifyJSON('jsonInput');">
                       <i class="fa fa-align-left" aria-hidden="true"></i>
                     </div>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <div class="panel-icon">
+                    <div class="panel-icon" onclick="json2xml();">
                       <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </div>
                   </div>
@@ -73,19 +73,21 @@
                     </div>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <div class="panel-icon" title="Format JSON data">
+                    <div class="panel-icon" title="Format JSON data" onclick="beautifyJSON('jsonOutput');">
                       <i class="fa fa-align-center" aria-hidden="true"></i>
                     </div>
-                    <div class="panel-icon" title="Compact JSON data, remove all whitespace">
+                    <div class="panel-icon" title="Compact JSON data, remove all whitespace" onclick="minifyJSON('jsonOutput');">
                       <i class="fa fa-align-left" aria-hidden="true"></i>
                     </div>
-                    <div class="panel-icon" title="Copy to clipboard">
+                    <div class="panel-icon" title="Copy to clipboard" id="copyOutput">
                       <i class="fa fa-clone" aria-hidden="true"></i>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="panel-body"></div>
+              <div class="panel-body">
+                <textarea name="jsonOutput" id="jsonOutput" placeholder="Copy here the JSON variable!"></textarea>
+              </div>
             </div>
           </div>
         </div>

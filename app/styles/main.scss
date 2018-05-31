@@ -49,6 +49,21 @@ textarea {
   outline: none;
 }
 
+.code-toolbar {
+  width: 100%;
+  height: 100%;
+  padding: 15px !important;
+  margin:0 !important;
+  border: 0 !important;
+  resize: none;
+  outline: none;
+  box-shadow:none !important;
+}
+
+.code-toolbar code {
+  padding:0 !important;
+}
+
 ::-webkit-input-placeholder {
   font-size: 30px;
   color: lightgray;

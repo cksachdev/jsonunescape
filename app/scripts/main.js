@@ -19,6 +19,11 @@ $(function () {
     copyToClipboard('jsonOutput');
   });
 
+  Prism.plugins.NormalizeWhitespace.setDefaults({
+    'break-lines': 80
+  });
+
+
 });
 
 
@@ -59,7 +64,6 @@ function minifyJSON(element_id) {
   }
 }
 
-
 function beautifyJSON(element_id) {
   var content = $('#' + element_id).val();
   if (content.trim().length == 0) {
@@ -74,25 +78,18 @@ function beautifyJSON(element_id) {
   }
 }
 
-
-var parseContentBody = function() {
-  var contentBody = $("#jsonInput").val();
-  console.log('parse content' + contentBody);
-  try {
-      contentBody = JSON.parse(contentBody);
-  } catch (e) {
-      contentBody = convertToJSON(contentBody);
+function jsonInputToOutput() {
+  var content = $("#jsonInput").val();
+  if (content.trim().length == 0) {
+      return false;
   }
-
-  console.log(contentBody);
-  $("#jsonOutput").empty().val(contentBody);
-}
-
-var convertToJSON = function(contentBody) {
-  try {
-      var x2js = new X2JS({ attributePrefix: 'none', enableToStringFunc: false });
-      return x2js.xml_str2json(contentBody);
+  try { 
+      var jsondata = content.toString();
+      var converter = new E2EConverter();
+      console.log(converter.buildECML(jsondata, true));
+      $("#output").empty().text(converter.buildECML(jsondata, true));
   } catch (e) {
-      return;
+      console.log('error!');
   }
 }
+

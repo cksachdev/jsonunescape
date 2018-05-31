@@ -20,11 +20,12 @@
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.common-material.min.css" />
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.material.min.css" />
   <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.2.516/styles/kendo.material.mobile.min.css" />
+  <link rel="stylesheet" href="styles/prism.css">
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild -->
 
 </head>
-
+ 
 <body>
   <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -50,7 +51,7 @@
                     </div>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <div class="panel-icon" onclick="parseContentBody();">
+                    <div class="panel-icon" onclick="jsonInputToOutput();">
                       <i class="fa fa-arrow-right" aria-hidden="true"></i>
                     </div>
                   </div>
@@ -86,7 +87,7 @@
                 </div>
               </div>
               <div class="panel-body">
-                <textarea name="jsonOutput" id="jsonOutput" placeholder="Copy here the JSON variable!"></textarea>
+                  <pre class="line-numbers language-markup code-toolbar"><code class="language-markup" id="output"></code></pre>
               </div>
             </div>
           </div>
@@ -118,6 +119,8 @@
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
   <script src="/bower_components/x2js/index.js"></script>
+  <script type="text/javascript" src="scripts/prism.js"></script>
+  <script type="text/javascript" src="scripts/E2EConverter.js"></script>
   <!-- endbuild -->
 
   <!-- build:js scripts/main.js -->

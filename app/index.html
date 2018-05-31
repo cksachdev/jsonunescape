@@ -25,7 +25,7 @@
   <!-- endbuild -->
 
 </head>
- 
+
 <body>
   <!--[if IE]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -39,20 +39,9 @@
             <div class="panel panel-default">
               <div class="panel-heading">
                 <div class="row">
-                  <div class="col-xs-6">
+                  <div class="col-xs-12">
                     <div class="panel-icon" title="Copy to clipboard" id="copyInput">
-                      <i class="fa fa-clone" aria-hidden="true"></i>
-                    </div>
-                    <div class="panel-icon" title="Format JSON data" onclick="beautifyJSON('jsonInput');">
-                      <i class="fa fa-align-center" aria-hidden="true"></i>
-                    </div>
-                    <div class="panel-icon" title="Compact JSON data, remove all whitespace" onclick="minifyJSON('jsonInput');">
-                      <i class="fa fa-align-left" aria-hidden="true"></i>
-                    </div>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <div class="panel-icon" onclick="jsonInputToOutput();">
-                      <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                       JSON TO XML
                     </div>
                   </div>
                 </div>
@@ -66,28 +55,24 @@
         <div id="right-pane">
           <div class="pane-content">
             <div class="panel panel-default">
-              <div class="panel-heading">
+              <div class="panel-heading icon-images">
                 <div class="row">
-                  <div class="col-xs-6">
-                    <div class="panel-icon">
-                      <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                  <div class="col-xs-12 text-right">
+                    <div class="panel-icon" title="View JSON" onclick="viewJsonOuput();">
+                       <img class="img-responsive" src="https://cdn3.iconfinder.com/data/icons/file-set-volume-1/512/Artboard_9-48.png" alt="">
                     </div>
-                  </div>
-                  <div class="col-xs-6 text-right">
-                    <div class="panel-icon" title="Format JSON data" onclick="beautifyJSON('jsonOutput');">
-                      <i class="fa fa-align-center" aria-hidden="true"></i>
-                    </div>
-                    <div class="panel-icon" title="Compact JSON data, remove all whitespace" onclick="minifyJSON('jsonOutput');">
-                      <i class="fa fa-align-left" aria-hidden="true"></i>
+                    <div class="panel-icon" title="View XML" onclick="viewXmlOutput();">
+                      <img class="img-responsive" src="https://cdn3.iconfinder.com/data/icons/file-set-volume-1/512/Artboard_1-48.png" alt="">
                     </div>
                     <div class="panel-icon" title="Copy to clipboard" id="copyOutput">
-                      <i class="fa fa-clone" aria-hidden="true"></i>
+                      <img class="img-responsive" src="https://cdn2.iconfinder.com/data/icons/cute-tech-icon-set-1/512/Copy-48.png" alt="">
                     </div>
                   </div>
                 </div>
               </div>
               <div class="panel-body">
-                  <pre class="line-numbers language-markup code-toolbar"><code class="language-markup" id="output"></code></pre>
+                <pre class="line-numbers language-markup code-toolbar"><code class="language-markup" id="bodyOutput"></code></pre>
+                <div class="hidden" id="hiddenBodyOutput"></div>
               </div>
             </div>
           </div>
@@ -118,7 +103,7 @@
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
   <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
-  <script src="/bower_components/x2js/index.js"></script>
+  <!-- <script src="/bower_components/x2js/index.js"></script> -->
   <script type="text/javascript" src="scripts/prism.js"></script>
   <script type="text/javascript" src="scripts/E2EConverter.js"></script>
   <!-- endbuild -->
